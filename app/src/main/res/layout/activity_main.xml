@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:paddingTop="0dp"
+    android:id="@+id/drawer_layout">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/coordinator_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/appBarLayout">
+
+   <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        app:backgroundTint="@color/colorPrimary"
+       android:background="@drawable/toolbar_shape"
+        android:layout_marginStart="10dp"
+        android:layout_gravity="top"
+        android:layout_marginEnd="10dp"
+       app:layout_scrollFlags="scroll|enterAlways|snap"
+        app:title="Samachar"
+        app:titleTextColor="#fff"
+       />
+        <android.support.design.widget.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tabLayout"
+            app:layout_scrollFlags="scroll|snap"
+            app:tabMode="scrollable"
+            app:tabGravity="fill"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            app:tabTextColor="@color/white"
+            app:tabSelectedTextColor="@color/colorAccent"/>
+    </android.support.design.widget.AppBarLayout>
+ <!--
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/category_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:orientation="horizontal"
+        tools:listitem="@layout/category_items" />
+-->
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@id/appBarLayout"
+        app:layout_anchorGravity="bottom"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            tools:listitem="@layout/list_item"
+            app:behavior_overlapTop="100dp"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_next_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/fab_previous_page"
+        app:elevation="5dp"
+        app:backgroundTint="#ce5151"
+        android:onClick="onClickPagesFab"
+        app:srcCompat="@drawable/ic_chevron_right_black_24dp"
+        android:visibility="invisible"
+        app:layout_anchor="@id/swipeRefreshLayout"
+        app:layout_anchorGravity="end|bottom"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"/>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_previous_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        app:backgroundTint="#4b87a3"
+        app:elevation="5dp"
+        android:visibility="invisible"
+        android:onClick="onClickPagesFab"
+        app:srcCompat="@drawable/ic_chevron_left_black_24dp"
+        app:layout_anchor="@id/swipeRefreshLayout"
+        app:layout_anchorGravity="start|bottom"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="30dp"/>
+
+    <TextView
+        android:id="@+id/tv_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Unable to load data !!!"
+        app:layout_anchor="@id/swipeRefreshLayout"
+        app:layout_anchorGravity="center"
+        android:textColor="@color/colorAccent"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/tv_no_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No data found !!!"
+        app:layout_anchor="@id/swipeRefreshLayout"
+        app:layout_anchorGravity="center"
+        android:textColor="@color/colorAccent"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:visibility="invisible"/>
+
+</android.support.design.widget.CoordinatorLayout>
+    </FrameLayout>
+
+    <android.support.design.widget.NavigationView
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:id="@+id/navigation_view"
+        app:menu="@menu/navigation_menu"
+        app:headerLayout="@layout/navigation_header"
+        />
+</android.support.v4.widget.DrawerLayout>

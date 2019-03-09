@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ArticleDescriptionActivity"
+    android:id="@+id/parent_frame">
+
+    <ImageView
+        android:id="@+id/img_desc"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_gravity="center_horizontal|top"
+        android:src="@drawable/news"
+        app:srcCompat="@drawable/news" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/more"
+        app:backgroundTint="@color/colorPrimary"
+        android:layout_marginEnd="7dp"
+        android:layout_marginTop="7dp"
+        app:elevation="5dp"
+        android:id="@+id/fab_more"
+        android:onClick="onClickMoreFab"
+        android:clickable="true"
+        android:layout_gravity="end"
+        android:focusable="true" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/ic_save_black_24dp"
+        app:backgroundTint="@color/colorPrimary"
+        android:layout_marginEnd="7dp"
+        android:layout_marginTop="70dp"
+        app:elevation="5dp"
+        android:id="@+id/fab_save"
+        android:onClick="onClickMoreFab"
+        android:clickable="true"
+        android:layout_gravity="end"
+        android:focusable="true" />
+
+
+    <android.support.v7.widget.CardView
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="240dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp">
+
+        <RelativeLayout
+            android:id="@+id/relative_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_title_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="TITLE"
+                android:maxLines="3"
+                android:textAlignment="center"
+                android:textColor="#595555"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:ellipsize="end"/>
+
+            <TextView
+                android:textColor="#a33f2b"
+                android:id="@+id/tv_author_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_title_desc"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:text="Author"
+                android:textAlignment="viewStart"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:textColor="#8193af"
+                android:id="@+id/tv_date_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_author_desc"
+                android:layout_marginBottom="3dp"
+                android:text="Date"
+                android:textAlignment="viewStart"
+                android:textSize="14sp"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:textColor="#8092ae"
+                android:id="@+id/tv_time_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_author_desc"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp"
+                android:text="Time"
+                android:textAlignment="viewEnd"
+                android:textSize="14sp"/>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_time_desc"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:textColor="#012c91"
+                    android:id="@+id/tv_description_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+            </ScrollView>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Main2Activity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_adv"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:backgroundTint="@color/colorPrimary"
+        android:layout_gravity="top"
+        app:title="Samachar"
+        app:titleTextColor="#fff" />
+
+    <TextView
+        android:layout_below="@+id/toolbar_adv"
+        android:id="@+id/heading_type"
+        android:text="Select type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="#afafaf"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"/>
+    <RadioGroup
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/heading_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/radio"
+        android:layout_margin="10dp">
+
+        <RadioButton
+            android:id="@+id/rb_top_headlines"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Top Headlines"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:onClick="onClickRadioButton"/>
+
+        <RadioButton
+            android:id="@+id/rb_everything"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Everything"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+
+            android:onClick="onClickRadioButton"/>
+        </RadioGroup>
+
+    <TextView
+        android:id="@+id/heading_select_country"
+        android:text="Select Country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_below="@+id/radio"
+        android:layout_marginStart="10dp"
+        android:textColor="#afafaf"/>
+
+    <Spinner
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/heading_select_country"
+        android:id="@+id/sp_country"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sp_country"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Category"
+        app:hintAnimationEnabled="true"
+        android:layout_centerHorizontal="true"
+        android:textColorHint="#5ca5e4"
+        android:id="@+id/til_category">
+
+        <EditText
+            android:id="@+id/et_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/til_category"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
+        android:layout_centerHorizontal="true"
+        android:hint="Keyword"
+        app:hintAnimationEnabled="true"
+        android:textColorHint="#5ca5e4"
+        android:id="@+id/til_keyword">
+
+        <EditText
+            android:id="@+id/et_keyword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:id="@+id/bt_adv_search"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/til_keyword"
+        android:onClick="onClickButton"/>
+
+</RelativeLayout>
